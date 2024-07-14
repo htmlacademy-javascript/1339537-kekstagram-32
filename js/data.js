@@ -5,7 +5,6 @@ import {createIdGenerator} from './util.js';
 const PICTURE_COUNT = 25;
 const LIKE_MIN_COUNT = 15;
 const LIKE_MAX_COUNT = 200;
-const COMMENT_MIN_COUNT = 0;
 const COMMENT_MAX_COUNT = 30;
 const AVATAR_MIN_COUNT = 1;
 const AVATAR_MAX_COUNT = 6;
@@ -61,14 +60,14 @@ const createPicture = (index) => ({
   description: getRandomArrayElement(DESCRIPTIONS),
   likes: getRandomInteger(LIKE_MIN_COUNT, LIKE_MAX_COUNT),
   comments: Array.from(
-    {length: getRandomInteger(COMMENT_MIN_COUNT, COMMENT_MAX_COUNT)},
-    createComment
-  )
+    {length: getRandomInteger(0, COMMENT_MAX_COUNT)},
+    createComment,
+  ),
 });
 
 const getPictures = () => Array.from(
   {length: PICTURE_COUNT},
-  (_, index) => createPicture(index + 1)
+  (_, pictureIndex) => createPicture(pictureIndex + 1)
 );
 
 export {getPictures};
