@@ -20,13 +20,6 @@ try {
   const debouncedRenderGallery = debounce(renderGallery);
   initFilter(data, debouncedRenderGallery);
   renderGallery(getFilteredPictures());
-  // renderGallery(data);
 } catch {
   showAlert();
 }
-// import {getPictures} from './data.js';
-// import {renderGallery} from './gallery.js';
-// import './form.js';
-
-// renderGallery(getPictures());
-// console.log(getPictures());
