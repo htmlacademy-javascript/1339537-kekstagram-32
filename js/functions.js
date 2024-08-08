@@ -22,7 +22,7 @@ isPalindrome('ДовОд'); // true
 isPalindrome('Кекс'); // false
 
 // №3 Функция принимает строку, извлекает содержащиеся в ней цифры от 0 до 9 и возвращает их в виде целого положительного числа. Если в строке нет ни одной цифры, функция должна вернуть NaN:
-const positiveInteger = (string) => {
+const getPositiveInteger = (string) => {
   let number = '';
 
   for (let i = 0; i <= string.length; i++) {
@@ -31,18 +31,14 @@ const positiveInteger = (string) => {
     }
   }
 
-  if (number.length > 0) {
-    return number;
-  } else {
-    return NaN;
-  }
+  return number.length > 0 ? number : NaN;
 };
 
-positiveInteger('2023 год'); // 2023
-positiveInteger('ECMAScript 2022'); // 2022
-positiveInteger('1 кефир, 0.5 батона'); // 105
-positiveInteger('агент 007'); // 7
-positiveInteger('а я томат'); // NaN
+getPositiveInteger('2023 год'); // 2023
+getPositiveInteger('ECMAScript 2022'); // 2022
+getPositiveInteger('1 кефир, 0.5 батона'); // 105
+getPositiveInteger('агент 007'); // 7
+getPositiveInteger('а я томат'); // NaN
 
 // Делу — время
 /*
